@@ -13,7 +13,16 @@ const Box: FC<BoxProps> = () => {
    useEffect(() => {
       const fetchData = async () => {
          try {
+            console.log(import.meta.env.PROD)
+            // if(process.env = )
+            if(import.meta.env.DEV)
+            {
             var endpoint = "/api/getPosts";
+            }
+            else 
+            {
+               var endpoint = "/getPosts";
+            }
             console.log(endpoint);
             // console.log(endpoint);
             const response = await axios
