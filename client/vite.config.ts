@@ -19,7 +19,7 @@ export default defineConfig({
     manifest: true,
     rollupOptions: {
       // overwrite default .html entry
-      input: '../index.js',
+      input: '/index.js',
     },
   },
 })
