@@ -12,33 +12,28 @@ const Box: FC<BoxProps> = () => {
    const [feeds, setFeedsData] = useState<Feed | null>(null);
    useEffect(() => {
       const fetchData = async () => {
+         // try {
+         //    console.log(import.meta.env.PROD)
+            // var endpoint = "http://localhost:2121/getPosts";
+            var endpoint = "/getPosts";
+         //    console.log(endpoint);
+         //    const response = await axios
+         //       .get<Feed>(endpoint)
+         //       .then((res) => {
+         //          console.log(res.data);
+         //          setFeedsData(res.data);
+         //       });
+         //       console.log(response);
+         //    // console.log(response);
+         // } 
          try {
-            console.log(import.meta.env.PROD)
-            // if(process.env = )
-            if(import.meta.env.DEV)
-            {
-            var endpoint = "/api/getPosts";
-            }
-            else 
-            {
-               var endpoint = "/getPosts";
-            }
-            console.log(endpoint);
-            // console.log(endpoint);
-            const response = await axios
-               // .get("/showMaterials")
-               // .get("/getPosts")
-               .get<Feed>(endpoint)
-               // .then((res) => setFeedsData(res))
-               .then((res) => {
-                  console.log(res.data);
-                  // console.log("this is materials from appjs frontend socialmedia");
-                  // return res.data;
-                  setFeedsData(res.data);
-               });
-               console.log(response);
-            // console.log(response);
-         } catch (err) {
+            // ... (existing code)
+      
+            const response = await axios.get<Feed>(endpoint);
+            console.log(response.data);
+            setFeedsData(response.data);
+         }
+         catch (err) {
             console.error(err);
          }
       };
